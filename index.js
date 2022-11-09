@@ -1,14 +1,22 @@
-function isPalindrome(word) {
-  // Write your algorithm here
-}
 
-/* 
-  Add your pseudocode here
-*/
+function isPalindrome(str){
+  let newArr=[];
+  let halfway = str.length/2;
+  if (halfway ===Math.floor(halfway)){
+      let secondHalf = Array.from(str).splice(halfway); 
+      for (char of secondHalf){
+        newArr.unshift(char);
+      }  
+      return newArr.join('') === Array.from(str).slice(0, halfway).join('');
+  } if (halfway !== Math.floor(halfway)){
+    let secondHalf = Array.from(str).splice(halfway +1);
+    for (char of secondHalf){
+      newArr.unshift(char);
+    }  return newArr.join('') === Array.from(str).slice(0, halfway).join('');
+  }; 
+};
 
-/*
-  Add written explanation of your solution here
-*/
+
 
 // You can run `node index.js` to view these console logs
 if (require.main === module) {
